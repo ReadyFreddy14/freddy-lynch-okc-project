@@ -18,3 +18,4 @@
 .court-meter button{font-size:10px;padding:4px 10px;min-height:26px}
 
 .hot-mode-label{display:block;margin-top:12px}.hot-mode-label select{max-width:100%}
+.okc-theme{--bg:#071426;--panel:#102a4c;--line:#2d6a96;--muted:#a9c4d8;--text:#f5f8fb;--lime:#65c7f3;--orange:#f26b38}
