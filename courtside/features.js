@@ -153,6 +153,7 @@ $('download-card').addEventListener('click', () => {
 });
 
 window.addEventListener('courtside:ready', event => {
+  if (window.courtsideState) { state = window.courtsideState; renderPreview(); }
   const players = event.detail.players.filter(p => p.team === 'OKC');
   const choices = ['Shai Gilgeous-Alexander', 'Chet Holmgren', 'Jalen Williams', 'Luguentz Dort']
     .map(name => players.find(p => p.name === name)).filter(Boolean);

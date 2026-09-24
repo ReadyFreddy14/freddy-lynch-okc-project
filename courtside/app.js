@@ -1,8 +1,8 @@
-import {setupGameplay,finalChance} from './gameplay.js';
+import {setupGameplay,finalChance} from './gameplay.js?v=20260924c';
 import {setupHotZones} from './hotzones.js';
 import * as THREE from './three.module.js';
 import {setupVR} from './vr.js';
-import {FT,makeModel,zoneName} from './model.js';
+import {FT,makeModel,zoneName} from './model.js?v=20260924c';
 const $=id=>document.getElementById(id);const clamp=(v,a,b)=>Math.max(a,Math.min(b,v));
 const teams={ATL:['#c83e46','#ffcf54'],BOS:['#098457','#e7e8da'],BKN:['#25272c','#efefef'],CHA:['#218d9a','#6657a1'],CHI:['#c73546','#161b22'],CLE:['#7b183c','#e9bf69'],DAL:['#1479be','#c4d2dd'],DEN:['#172b4a','#f7cb52'],DET:['#de344d','#266fce'],GSW:['#2073ce','#f6ca42'],HOU:['#d9364a','#dadce1'],IND:['#253557','#edc64c'],LAC:['#e0e3e8','#2b4e79'],LAL:['#eabf40','#754d9e'],MEM:['#7fb5d4','#172d50'],MIA:['#a72038','#eac863'],MIL:['#176446','#e9e0c9'],MIN:['#24486b','#9ccf54'],NOP:['#1d3451','#c19450'],NYK:['#2566b8','#eb873d'],OKC:['#1989c8','#ec8046'],ORL:['#1789d5','#dfdfdf'],PHI:['#1f69ba','#e14651'],PHX:['#7844a5','#f1953c'],POR:['#b83b49','#dddddd'],SAC:['#72519c','#ddd'],SAS:['#c1c8cb','#262c33'],TOR:['#c9394b','#31373b'],UTA:['#7852a6','#acdeec'],WAS:['#234968','#e75160']};
 let vr=null,hotZones=null,game=null;let defenderTarget=null;
