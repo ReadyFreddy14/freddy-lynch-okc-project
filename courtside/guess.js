@@ -1,4 +1,4 @@
-(() => {
+window.addEventListener('DOMContentLoaded', () => {
   const get = id => document.getElementById(id);
   const panel = document.querySelector('.game-panel');
   const chargeButton = get('charge-shot');
@@ -44,4 +44,4 @@
     pending = null;
   });
   observer.observe(get('result'), { childList: true, characterData: true, subtree: true });
-})();
+});
