@@ -191,3 +191,7 @@ document.addEventListener('keydown', event => {
   else if (key === 'r') { event.preventDefault(); $('reset')?.click(); }
   else if (event.key === '?') { event.preventDefault(); announce('Shortcuts: S quick shot, H hot zones, R reset score. Arrow keys move the court position when the map is focused.'); }
 });
+
+// Module scripts can finish after the data request on a fast connection.
+if (window.courtsideState) { state = window.courtsideState; renderPreview(); }
+if (window.courtsidePlayers) window.dispatchEvent(new CustomEvent('courtside:ready', { detail: { players: window.courtsidePlayers } }));
