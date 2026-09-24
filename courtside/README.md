@@ -6,12 +6,6 @@ This is a separate personal simulator, not an analyst-project submission file.
 
 Run `python serve.py`, then open http://127.0.0.1:8767/ . Python 3 is the only server dependency. The app, statistics and Three.js are served locally; no API key or package installation is needed. Opening index.html directly as a file will not load browser modules/data correctly.
 
-On this computer, the prepared environment is:
-
-```powershell
-& "C:\Users\fasim\Documents\Codex\2026-09-17\co\work\venv\Scripts\python.exe" serve.py
-```
-
 ## Use it
 
 - Search an offensive player and click/select their name.
@@ -43,9 +37,7 @@ The included snapshot was retrieved 2026-09-20 from https://github.com/fuku8/nba
 - data.json: complete local player/shot snapshot
 - tests.mjs: data-integrity and model-boundary tests (`node tests.mjs`)
 
-Built with Codex assistance. User requests and implementation scope are recorded in ai_prompts.md.
-
-The personal report embeds a copy under nba-shot-project/courtside/. After editing this standalone app, copy the updated files there to update the embedded version. The assignment-only files are separately preserved under outputs/submission-ready/.
+Built with Codex assistance under Freddy Lynch's direction. This website is maintained in its own repository and is separate from the analyst assignment submission.
 
 ## WebXR VR mode
 
