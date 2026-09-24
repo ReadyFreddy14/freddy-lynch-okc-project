@@ -20,3 +20,21 @@
 
 .hot-mode-label{display:block;margin-top:12px}.hot-mode-label select{max-width:100%}
 .okc-theme{--bg:#071426;--panel:#102a4c;--line:#2d6a96;--muted:#a9c4d8;--text:#f5f8fb;--lime:#65c7f3;--orange:#f26b38}
+
+/* Shot lab, personal records, spotlight, and touch controls. */
+.extras-panel{padding:24px;margin:20px 0}
+.extras-grid{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:16px}
+.extras-card,.whatif{background:#0b203a;border:1px solid var(--line);border-radius:12px;padding:18px;min-width:0}
+.extras-card h3,.whatif h3{margin-top:0;color:var(--lime)}
+.extras-card button{margin:6px 8px 6px 0}
+.extras-card button:disabled{opacity:.55}
+#replay-map{display:block;width:min(100%,215px);height:auto;margin:auto}
+.replay-list{font-size:12px;max-height:116px;overflow:auto;padding-left:23px;color:var(--muted)}
+.best-list{margin:0}.best-list div{display:flex;justify-content:space-between;gap:15px;padding:7px 0;border-bottom:1px solid var(--line)}.best-list dd{margin:0;color:var(--lime);text-align:right;font-weight:700}
+.whatif{margin:16px 0}.whatif label{display:block;color:var(--lime);font-weight:700}.whatif input{width:100%;accent-color:var(--orange);margin:12px 0}.whatif output{color:var(--text)}
+.spotlight{border-top:1px solid var(--line);margin-top:22px;padding-top:16px}.spotlight h3{color:var(--lime)}.spotlight-player{border:1px solid var(--line);border-radius:8px;padding:10px;margin:8px 0}.spotlight-player strong,.spotlight-player span{display:block}.spotlight-player span{font-size:12px;color:var(--muted)}.spotlight-player button{font-size:12px;padding:6px 8px;margin:7px 5px 0 0}
+.tap-shoot{display:none}.sr-only{position:absolute;width:1px;height:1px;padding:0;margin:-1px;overflow:hidden;clip:rect(0,0,0,0);white-space:nowrap;border:0}
+@media(max-width:800px){.extras-grid{grid-template-columns:1fr}.tap-shoot{display:inline-block;min-height:64px;width:100%;margin:12px 0;font-size:18px}#charge-shot{min-height:64px;width:100%;font-size:18px}.court-meter button{min-height:44px;font-size:13px}.game-panel{padding:18px}}
+@media(max-width:480px){.extras-panel{padding:15px}.extras-card,.whatif{padding:14px}}
+@media(prefers-reduced-motion:reduce){*,*::before,*::after{animation-duration:.01ms!important;transition-duration:.01ms!important;scroll-behavior:auto!important}}
+.reduce-motion *, .reduce-motion *::before, .reduce-motion *::after{animation-duration:.01ms!important;transition-duration:.01ms!important;scroll-behavior:auto!important}
