@@ -1,0 +1,15 @@
+{
+  "retrieved": "2026-09-20",
+  "season": "2025-26",
+  "source": "https://github.com/fuku8/nba-data",
+  "inputs": [
+    "data/player_totals.csv",
+    "data/player_profiles.csv",
+    "data/season.txt",
+    "data/shots/{PLAYER_ID}.json:rs"
+  ],
+  "players": 582,
+  "shots": 219160,
+  "validation": "All 582 per-player attempts and makes match season totals",
+  "data_sha256": "abc5471e0695dc7ad2187ff573a540722be92278bfe27863a9a0c8bb692162b8"
+}

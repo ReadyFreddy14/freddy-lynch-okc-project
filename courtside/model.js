@@ -1,0 +1,10 @@
+export const FT=.3048;
+export function isThree(x,y){return Math.abs(x)>=22 || Math.hypot(x,y)>=23.75;}
+export function zoneName(x,y){const d=Math.hypot(x,y);if(d>47)return 'Backcourt / long heave';if(d>35)return 'Deep range / extrapolation';if(isThree(x,y))return Math.abs(x)>=22 && y<9?'Corner three':'Above-the-break three';if(d<4)return 'At the rim';if(d<12)return 'Paint / short range';return 'Mid-range';}
+export function makeModel(data){
+ const shots=data.players.flatMap(p=>p.shots);const totals=data.players.reduce((a,p)=>{a.m2+=p.fgm-p.threeMade;a.n2+=p.fga-p.threeAttempts;a.m3+=p.threeMade;a.n3+=p.threeAttempts;a.min+=p.minutes;a.blk+=p.blocks;a.stl+=p.steals;return a;},{m2:0,n2:0,m3:0,n3:0,min:0,blk:0,stl:0});
+ const avgBlk=36*totals.blk/totals.min,avgStl=36*totals.stl/totals.min;
+ function nearby(list,x,y,three){let n=0,m=0;for(const s of list){const sx=s[0]/10,sy=s[1]/10;if(Math.hypot(sx-x,sy-y)<=5 && isThree(sx,sy)===three){n++;m+=s[2];}}return {n,m};}
+ function estimate(off,def,x,y,pressure){const distance=Math.hypot(x,y),three=isThree(x,y),avg=three?totals.m3/totals.n3:totals.m2/totals.n2;const local=nearby(off.shots,x,y,three),league=nearby(shots,x,y,three);const typeN=three?off.threeAttempts:off.fga-off.threeAttempts,typeM=three?off.threeMade:off.fgm-off.threeMade;const typeRate=(typeM+30*avg)/(typeN+30),leagueRate=(league.m+50*avg)/(league.n+50);let base=(local.m+25*leagueRate+35*typeRate)/(local.n+60);const extrapolated=distance>35;if(extrapolated)base*=Math.exp(-(distance-35)/14);const b36=36*(def.blocks+300*avgBlk/36)/(def.minutes+300),s36=36*(def.steals+300*avgStl/36)/(def.minutes+300);const skill=Math.max(-.04,Math.min(.04,.008*(b36-avgBlk)+.003*(s36-avgStl)));const level={open:{offset:.04,scale:0},moderate:{offset:0,scale:.7},tight:{offset:-.07,scale:1.3}}[pressure];const adjustment=level.offset-level.scale*skill;const p=Math.max(.01,Math.min(.95,base+(extrapolated?adjustment*Math.exp(-(distance-35)/14):adjustment)));return {p,base,distance,three,local,league,typeRate,adjustment,extrapolated,b36,s36,zone:zoneName(x,y)};}
+ return {estimate,totals};
+}
